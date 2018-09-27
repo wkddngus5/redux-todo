@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types'
 
-import AddTodo from './AddTodo';
+import AddTodo from '../containers/AddTodo';
 import VisibleTodoList from '../containers/VisibleTodoList';
 
 const App = () => (

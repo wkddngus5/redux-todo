@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { addTodo } from "../acitons";
+import { addTodo } from "../acitons/index";
 import './AddTodo.css';
 
 let AddTodo = ({ dispatch }) => {
