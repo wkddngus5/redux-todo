@@ -1,6 +1,8 @@
-import { ADD_TODO } from "../acitons";
+import { combineReducers } from 'redux';
 
-export default (state = [], action) => {
+import { ADD_TODO, DELETE_TODO } from "../acitons";
+
+function todos (state = [], action) {
   switch (action.type) {
     case ADD_TODO:
       return [
@@ -10,7 +12,16 @@ export default (state = [], action) => {
           text: action.text
         },
       ];
+    case DELETE_TODO:
+      console.log(asdf);
+      return state;
     default:
       return state;
   }
 }
+
+const todoApp = combineReducers({
+  todos
+});
+
+export default todoApp;

@@ -1,22 +1,23 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types'
 
 import Todo from './Todo';
+import './TodoList.css';
 
-class TodoList extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    const { todos } = this.props;
-    const todoEls = todos.map((todo, index) => (
+const TodoList = ({ todos }) => (
+  <ul className='list-group container'>
+    {todos.map((todo, index) => (
       <Todo key={index} {...todo} />
-    ));
+    ))}
+  </ul>
+);
 
-    return (
-      <ul>{todoEls}</ul>
-    );
-  }
-}
+TodoList.propTypes = {
+  todos: PropTypes.arrayOf(
+    PropTypes.shape({
+      text: PropTypes.string.isRequired
+    }).isRequired
+  ).isRequired,
+};
 
 export default TodoList;

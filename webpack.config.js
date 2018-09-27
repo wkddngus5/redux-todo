@@ -19,6 +19,10 @@ module.exports = {
             options: { minimize: true }
           }
         ]
+      },
+      {
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader']
       }
     ]
   },

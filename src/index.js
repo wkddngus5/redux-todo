@@ -1,22 +1,21 @@
 import { createStore } from 'redux';
 import React from 'react';
 import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux';
 
 import rootReducer from './reducers';
 import { addTodo } from "./acitons";
-import TodoList from './components/TodoList';
-import AddTodo from './components/AddTodo';
+import App from './components/App';
+
 
 const store = createStore(rootReducer);
 
 const render = () => ReactDOM.render(
-  <div id='app'>
-    <AddTodo addTodo={(text) => { store.dispatch(addTodo(text)) }}/>
-    <TodoList todos={store.getState()}/>
-  </div>
+  <Provider store={store}>
+    <App />
+  </Provider>
   ,
   document.querySelector('#root')
 );
 
 render();
-store.subscribe(render);
