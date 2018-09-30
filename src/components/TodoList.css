@@ -13,3 +13,8 @@
     float: right;
     display: inline-block;
 }
+
+.col-sm.text.success {
+    text-decoration:line-through
+}
+
