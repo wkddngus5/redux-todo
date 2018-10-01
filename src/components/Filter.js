@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types'
+import { Route, Link } from 'react-router-dom';
 
 import './Filter.css';
 
@@ -12,6 +13,9 @@ export const filterTypes = {
 const Filter = ({filter, onFilterChange}) => {
   const filterList = Object.keys(filterTypes).map((key, index) => {
     const active = filter === filterTypes[key] ? 'active' : '';
+    const link = () => (
+      <Link to={key === filterTypes.ALL ? '' : filter} className={`nav-link ${active}`}>{filterTypes[key]}</Link>
+    );
 
     return <li
       key={index}
@@ -19,14 +23,15 @@ const Filter = ({filter, onFilterChange}) => {
           onFilterChange(filterTypes[key]);
       }}
       className={`nav-item ${filterTypes[key]} ${active}`}>
-      <a className='nav-link'>{filterTypes[key]}</a>
+      <Route component={link} />
     </li>
   });
 
   return (
-    <ul className='nav'>
-      {filterList}
-    </ul>)
+      <ul className='nav'>
+        {filterList}
+      </ul>
+    )
 };
 
 Filter.propTypes = {

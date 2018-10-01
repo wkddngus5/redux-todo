@@ -4,7 +4,6 @@ import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux';
 
 import rootReducer from './reducers';
-import { addTodo } from "./acitons";
 import App from './components/App';
 
 
